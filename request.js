@@ -28,8 +28,8 @@ const getOptions = options => {
  * @param  {Response} response Ответ сервера
  * @return {Promise}          JSON объект
  */
-const checkResponse = response => {
-  if(response.status !== 200)
+const checkResponse = (response, SUCCESS_CODE = 200) => {
+  if(response.status !== SUCCESS_CODE)
     return Promise.reject('Ошибка выполнения запроса!');
 
   return response.json();
